@@ -1,0 +1,29 @@
+head
+    title=text.title
+    meta(charset='utf-8')
+    link(href = '../css/bootstrap.min.css', rel = 'stylesheet')
+    link(href = '../css/bootstrap-responsive.min.css', rel = 'stylesheet')
+    link(href = '../css/header.css', rel = 'stylesheet')
+    script(src='../js/bootstrap.js')
+    script(src='../js/main.js')
+
+header.navbar.navbar-fixed-top
+        div.navbar-inner(style='width: 100%; background: '+color)
+            div.container
+                ul.nav(style='float: right')
+                    li(style='right: 0px')
+                        a(href='?lang=en') ENG
+                    li(style='float: right')
+                        a(href='?lang=ua') UKR
+                ul.nav
+                    li
+                        a.brand(href='/') #{www}
+                    li
+                        img(src=logo).logo
+                    li(class=""+activehome)
+                        a(href='/') #{text.homename}
+                    li(class=""+activebooks)
+                        a(href='/books') #{text.booksname}
+                    li(class=""+activeaboutus)
+                        a(href='/aboutus') #{text.aboutname}
+

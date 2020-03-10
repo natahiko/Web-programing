@@ -1,0 +1,12 @@
+section
+    h2 #{header}
+    form.well.mybord(action="/addUser" method="GET")
+        label #{name}
+        input.input-xlarge.search-query(type='text' placeholder=""+name+"..." id='input_surname' name='input_surname')
+        label #{email}
+        input.input-xlarge(type='email' placeholder='Example@email.com' id='input_email' name='input_email')
+        label #{comment}
+        textarea.input-xlarge( rows=2 placeholder='...' name='input_comment')
+        button.btn(type='submit' id='submit_button' onclick='return empty()') #{ok}
+        input(style='display: none' id='ername' value=''+ername)
+        input(style='display: none' id='eremail' value='' + eremail)

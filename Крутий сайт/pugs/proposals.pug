@@ -1,0 +1,11 @@
+h1 #{header}
+br
+each prop in data
+    div.hero-unit(style='padding: 10px')
+        h2(style='color: blue') #{prop.name}
+        h2
+            u #{email}:
+            i  #{prop.email}
+        p
+            b #{desc}:
+            i #{prop.comment}

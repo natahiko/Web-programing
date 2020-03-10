@@ -1,0 +1,9 @@
+body
+    img.home-main-img(src="../img/home-main1.jpg" alt="")
+    div.well
+        h1 #{title}
+        p #{maintext}
+    div(style='margin: 1.5em; font-size: larger')
+        each item in items
+            p #{item}
+

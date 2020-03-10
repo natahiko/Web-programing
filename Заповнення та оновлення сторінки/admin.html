@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Адміністраторська частина</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="padding: 50px">
+<h1>Додати нову статтю</h1>
+<form action="/addInfo" method='get'>
+    <div class="form-group">
+        <label for="caption">Заголовок:</label>
+        <input type="text" class="form-control" placeholder="Заголовок..." maxlength="120" id="caption" name="caption">
+    </div>
+    <div class="form-group">
+        <label for="text">Текст:</label>
+        <textarea rows="5" class="form-control" placeholder="Введать текст..." id="text" name="text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Додати</button>
+</form>
+<form action="/" method="get">
+    <button type="submit" class="btn btn-outline-secondary">На головну сторінку</button>
+</form>
+</body>
+</html>

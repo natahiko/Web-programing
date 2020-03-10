@@ -1,0 +1,30 @@
+.nav a{
+    color: black !important;
+
+}
+.active a{
+    color: white !important;
+    background: rgba(0,0,0,0.15) !important;
+}
+.logo{
+    height: 45px;
+    margin-right: 20px;
+}
+body{
+    width: 70%;
+    margin-top:55px;
+}
+section{
+    width: 25%;
+    margin: 3%;
+    position: fixed;
+    top: 70px;
+    right: 0;
+}
+.mybord{
+    border: 2px solid red;
+}
+.home-main-img{
+    margin: 20px;
+    width: 80%;
+}

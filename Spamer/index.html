@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Посібник спамера</title>
+</head>
+<body>
+<h1>Розсилка всім користувачам</h1>
+<input type='button' onclick='setText1()' value='Текст 1'>
+<input type='button' onclick='setText2()' value='Текст 2'>
+<input type='button' onclick='setText3()' value='Текст 3'>
+<input type='button' onclick='setText4()' value='Текст 4'>
+<input type='button' onclick='setText5()' value='Текст 5'>
+<input type='button' onclick='setText6()' value='Текст 6'>
+
+<!--//send to all user form-->
+<br>
+<form action='/sended' method='get'>
+    <br>
+    <br>
+    <textarea style='width: 40%; height: 100px' id='main_text' placeholder='Введіть ваш текст тут....' type='text' name='inp' ></textarea>
+    <br>
+    <br>
+    <input type='submit' value='Надіслати всім!' id='main_button'/>
+</form>
+
+<!--//add new user to db-->
+<h1>Додати нового користувача</h1>
+<form action='/adduser' method='get'>
+    <input type='text' placeholder='email...' name='useremail'>
+    <input type='text' placeholder='name...' name='username'>
+    <input type='text' placeholder='surname...' name='usersur'>
+    <input type='text' placeholder='midname...' name='usermid'>
+    <br>
+    <br>
+    <input type='submit' value='Додати користувача'/>
+</form>
+
+<h1>Редагувати базу даних</h1>
+<form action="/editdb" method="get">
+    <br>
+    <input type='submit' value='Редагувати'/>
+</form>
+
+<script src='main.js' type='text/javascript'></script>
+</body>
+</html>

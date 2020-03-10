@@ -1,0 +1,17 @@
+{
+  "maincolor": "#07BFC7",
+  "www": "cool.cite.natahiko",
+  "picture": "../img/logo.png",
+  "ua":{
+    "title": "Крутий сайт",
+    "homename": "Головна",
+    "booksname": "Книги",
+    "aboutname": "Про нас"
+    },
+  "en": {
+    "title": "Cool cite",
+    "homename": "Home",
+    "booksname": "Books",
+    "aboutname": "About us"
+    }
+}

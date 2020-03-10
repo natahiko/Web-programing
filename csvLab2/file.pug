@@ -1,0 +1,23 @@
+
+a(href='http://localhost:2223/down') За зростанням
+br
+br
+a(href='http://localhost:2223/up') За спаданням
+br
+br
+a(href='http://localhost:2223/') Як у файлі
+br
+br
+table(style='width:100%', border='3')
+    tr
+        th Name
+        th Mark1
+        th Mark2
+        th Mark3
+        th Mark4
+        th Total
+    each val in keys
+        tr
+            each vaal in val
+                th=vaal
+

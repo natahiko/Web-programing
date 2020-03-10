@@ -1,0 +1,118 @@
+{
+  "ua":{
+    "title": "Крутий сайт",
+    "homename": "Головна",
+    "booksname": "Книги",
+    "aboutname": "Про нас",
+    "home":{
+      "title": "Вітаю, у моїй книжковій крамниці",
+      "maintext": "Якщо ви завітали на цей сайт, то певно ви цікавитесь книгами та сайтами написаними на Node js. Це дуже крутий сайт, тому просто насолождуйтесь перебуваючи на ньому. Дякуюємо!",
+      "items": ["Книга – одне з найбільших чудес, створеною людиною. З тих пір, як люди навчилися писати, свою всю мудрість вони довірили книгам. Книги відкривають нам світ, допомагають уявити минуле, заглянути в майбутнє",
+        "Шлях розвитку книги був довгим і складним. Який тільки матеріал не використовували люди для виготовлення книжок: глину, листя та кору дерева, шкіру тварин, бамбук, папірус, шовк.",
+        "Отож, шануймо, бережімо, читаймо книги, бо у них мудрість, розум, знання людства, які створювалися впродовж тисячоліть. Книга – найбільший винахід людства."]
+    },
+    "aboutus":{
+      "text": "Ми дуже крутий сайт з дуже крутими книжками. Подивись на сторінку мого творця в інстраграм:",
+      "link": "https://www.instagram.com/natahiko/"
+    },
+    "form":{
+      "name": "Ім'я",
+      "email": "Електронна пошта",
+      "comment": "Коментар",
+      "ok": "Надіслати",
+      "header": "Заявка",
+      "ername": "Поле імені не можу бути порожнім",
+      "eremail": "Поле пошти не можу бути порожнім і повинно мати хоча б один символ @"
+    },
+    "thanks":{
+      "header": "Ваша заявка успішно додана",
+      "text": "Якщо ви хочете переглянути всі заявки натисніть на кнопну знизу",
+      "button": "Переглянути заявки"
+    },
+    "error":{
+      "header": "Сталася якась помилка",
+      "text": "МИ приносимо свої вибачення, юудб ласка, спробуйте подати заявку пізніше або перезавантажити сторінку. Ви також можете переглянути всі заявки тутЖ",
+      "button": "Переглянути заявки"
+    },
+    "confirm": {
+      "header": "Перевірте вашу пошту",
+      "text": "Вам на пошту було надіслано лист для завершення реєстрації. Перевірте вашу пошту, якщо лист не надійшов можете надіслати повторну заявку. А поки що можете передивитись інші заявки",
+      "button": "Переглянути заявки"
+    },
+    "email": {
+      "header": "Привіт, ",
+      "text": "Ви залишили заявку на нашому сайті, для підтвердження вашої електронної пошти натисність кнопку нижче",
+      "button": "Підтвердити"
+    },
+    "proposals": {
+      "header": "Всі пропозиції",
+      "desc": "Коментар",
+      "nonedesc": "відсутній",
+      "email": "Пошта"
+    },
+    "books":{
+      "header": "Книги",
+      "desc": "Детальніше",
+      "author": "Автор",
+      "name": "Назва"
+    }
+  },
+  "en": {
+    "title": "Cool cite",
+    "homename": "Home",
+    "booksname": "Books",
+    "aboutname": "About us",
+    "home":{
+      "title": "Welcome to my book shop",
+      "maintext": "If you visit this site it means you are interested in books and Node js applications. This is a very cool web-page, so just enjoy it. Thanks!",
+      "items": ["A book is a medium for recording information in the form of writing or images, typically composed of many pages (made of papyrus, parchment, vellum, or paper) bound together and protected by a cover.[1] The technical term for this physical arrangement is codex (plural, codices). In the history of hand-held physical supports for extended written compositions or records, the codex replaces its immediate predecessor, the scroll. A single sheet in a codex is a leaf, and each side of a leaf is a page.",
+        "Books can be borrowed from a library or bought from a bookstore. People can make their own books and fill them with family photos, drawings, or their own writing. Some books are empty inside, like a diary, address book, or photo album. Most of the time, the word 'book' means that the pages inside have words printed or written on them."]
+    },
+    "aboutus":{
+      "text": "We are very cool and our cite a very cool too. Visit the page of our creator in instagram:",
+      "link": "https://www.instagram.com/natahiko/"
+    },
+    "form":{
+      "name": "Name",
+      "email": "Email",
+      "comment": "Comment",
+      "ok": "Send",
+      "header": "Proposal",
+      "ername": "Name field can't be empty",
+      "eremail": "Email field can't be empty and should have at least one @ character"
+    },
+    "thanks":{
+      "header": "You successfully added",
+      "text": "If you want to see all proposals, please, click the button below",
+      "button": "See all"
+    },
+    "error":{
+      "header": "Something bad happened",
+      "text": "We couldn't add your request? pease try again later or reload your pages. You also may see all old proposals here:",
+      "button": "See all"
+    },
+    "confirm": {
+      "header": "Check your email",
+      "text": "We send an email to you. Check it and confirm to final your registration",
+      "button": "See all proposals"
+    },
+    "email": {
+      "header": "Hello, ",
+      "text": "You leave your proposal on our site! To confirm your email? please click the button below!",
+      "button": "Confirm email"
+    },
+    "proposals": {
+      "header": "All proposals",
+      "desc": "Comment",
+      "nonedesc": "none",
+      "email": "email"
+    },
+    "books":{
+      "header": "Books",
+      "desc": "Description",
+      "author": "Author",
+      "name": "Name"
+    }
+
+  }
+}
