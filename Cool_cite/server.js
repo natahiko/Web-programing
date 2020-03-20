@@ -22,7 +22,7 @@ console.log('Server is running on port 7777');
 server.use(express.static(__dirname));
 server.use(express.static('public'));
 server.use(express.static('files'));
-server.use('/react', express.static(path.join(__dirname, 'build')));
+server.use('/book', express.static(path.join(__dirname, 'build')));
 
 server.get('/', function(req, res){
     res.write(getHeader(req.query.lang, "home"));
