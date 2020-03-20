@@ -4,6 +4,7 @@ let express = require('express');
 const pug = require('pug');
 var nodemailer = require('nodemailer');
 const fs = require('fs');
+const path = require('path');
 let config = require('./json/conf.json');
 let confText = require('./json/text.json');
 var crypto = require('crypto');
@@ -21,6 +22,7 @@ console.log('Server is running on port 7777');
 server.use(express.static(__dirname));
 server.use(express.static('public'));
 server.use(express.static('files'));
+server.use('/react', express.static(path.join(__dirname, 'build')));
 
 server.get('/', function(req, res){
     res.write(getHeader(req.query.lang, "home"));
@@ -38,32 +40,38 @@ server.get('/', function(req, res){
     res.end();
 });
 
-server.get('/books', function(req, res){
-    res.write(getHeader(req.query.lang, "books"));
-    var data1 = {};
-    var data2 = {};
-    var databook = {};
-    if(req.query.lang=='en'){
-        data2 = confText.en.form;
-        data1 = confText.en.error;
-        databook = confText.en.books;
-    } else{
-        data2 = confText.ua.form;
-        data1 = confText.ua.error;
-        databook = confText.ua.books;
-    }
+server.get('/getbooks',function (req,res) {
     con.query("SELECT * FROM books;",function (err, result, fields) {
-        if(err){
-            res.write(pug.renderFile("pugs/error.pug",data1));
-        } else {
-            //TODO
-
-        }
+        res.write(JSON.stringify(result));
         res.end();
     });
-    res.write(pug.renderFile("pugs/form.pug",data2));
-    res.end();
 });
+
+// server.get('/books', function(req, res){
+//     res.write(getHeader(req.query.lang, "books"));
+//     var data1 = {};
+//     var data2 = {};
+//     var databook = {};
+//     if(req.query.lang=='en'){
+//         data2 = confText.en.form;
+//         data1 = confText.en.error;
+//         databook = confText.en.books;
+//     } else{
+//         data2 = confText.ua.form;
+//         data1 = confText.ua.error;
+//         databook = confText.ua.books;
+//     }
+//     con.query("SELECT * FROM books;",function (err, result, fields) {
+//         if(err){
+//             res.write(pug.renderFile("pugs/error.pug",data1));
+//         } else {
+//             //TODO
+//         }
+//         res.end();
+//     });
+//     res.write(pug.renderFile("pugs/form.pug",data2));
+//     res.end();
+// });
 
 server.get('/addUser', function(req, res){
     var data1 = {};

@@ -19,6 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "build-loletskii": "cross-env PUBLIC_URL=\"/react\" react-scripts build",
+    "postbuild-loletskii": "xcopy ./build ../Cool-cite/build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2"
   }
 }
