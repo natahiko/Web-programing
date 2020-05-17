@@ -6,7 +6,7 @@ const pug = require('pug');
 var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: '2303',
     database: 'emaillab'
 });
 

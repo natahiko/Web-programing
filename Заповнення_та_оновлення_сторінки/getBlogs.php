@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "2303";
 $dbname = "emaillab";
 
 // Create connection

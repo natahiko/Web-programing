@@ -12,7 +12,7 @@ var crypto = require('crypto');
 var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: '2303',
     database: 'emaillab'
 });
 
@@ -24,14 +24,17 @@ server.use(express.static('public'));
 server.use(express.static('files'));
 server.use('/book', express.static(path.join(__dirname, 'build')));
 
+let last_lang= "ua";
 server.get('/', function(req, res){
     res.write(getHeader(req.query.lang, "home"));
     var data1 = {};
     var data2 = {};
     if(req.query.lang=='en'){
+        last_lang= "en";
         data1 = confText.en.home;
         data2 = confText.en.form;
     } else{
+        last_lang= "ua";
         data1 = confText.ua.home;
         data2 = confText.ua.form;
     }
@@ -41,61 +44,52 @@ server.get('/', function(req, res){
 });
 
 server.get('/getbooks',function (req,res) {
-    con.query("SELECT * FROM books;",function (err, result, fields) {
-        res.write(JSON.stringify(result));
+    con.query("SELECT * FROM books ",function (err, result, fields) {
+        console.log(err)
+        console.log(result)
+        res.write(JSON.stringify(result)+"");
         res.end();
     });
 });
+server.get('/content', function (req, res) {
+    if(req.query.lang==='en' || last_lang==="en"){
+        res.write(JSON.stringify(confText.en));
+    }else {
+        res.write(JSON.stringify(confText.ua));
+    }
+    res.end();
+})
 
-// server.get('/books', function(req, res){
-//     res.write(getHeader(req.query.lang, "books"));
-//     var data1 = {};
-//     var data2 = {};
-//     var databook = {};
-//     if(req.query.lang=='en'){
-//         data2 = confText.en.form;
-//         data1 = confText.en.error;
-//         databook = confText.en.books;
-//     } else{
-//         data2 = confText.ua.form;
-//         data1 = confText.ua.error;
-//         databook = confText.ua.books;
-//     }
-//     con.query("SELECT * FROM books;",function (err, result, fields) {
-//         if(err){
-//             res.write(pug.renderFile("pugs/error.pug",data1));
-//         } else {
-//             //TODO
-//         }
-//         res.end();
-//     });
-//     res.write(pug.renderFile("pugs/form.pug",data2));
-//     res.end();
-// });
-
+server.get('/setLang', function (req, res) {
+    last_lang = req.query.lang;
+    res.write(JSON.stringify({}));
+    res.end();
+})
 server.get('/addUser', function(req, res){
     var data1 = {};
     var data2 = {};
     var emdata = {};
     if(req.query.lang=='en'){
+        last_lang= "en";
         data1 = confText.en.confirm;
         data2 = confText.en.error;
         emdata = confText.en.email;
     } else{
+        last_lang= "ua";
         data1 = confText.ua.confirm;
         data2 = confText.ua.error;
         emdata = confText.ua.email;
     }
     res.write(getHeader(req.query.lang, ""));
 
-    var surname = req.query.input_surname;
-    var email = req.query.input_email;
-    var comment = req.query.input_comment;
-    var name = surname+"*-*"+email;
-    var code = crypto.createHash('md5').update(name).digest('hex');
-    con.query("INSERT INTO proposals (name, email, comment, code) VALUES ('"+surname+"', '"+email+"', '"+comment+"', '"
-        +code+"');",function (err, result, fields) {
+    const surname = req.query.input_surname;
+    const email = req.query.input_email;
+    const comment = req.query.input_comment;
+    const name = surname+"*-*"+email;
+    const code = crypto.createHash('md5').update(name).digest('hex');
+    con.query("INSERT INTO proposals (name, email, comment, code) VALUES ('{}','{}','{}','{}' );".format(surname, email, comment, code.substring(0,10)),function (err, result, fields) {
         if(err){
+            console.log(err)
             res.write(pug.renderFile("pugs/error.pug",data2));
         } else {
             send(email, emdata, surname, code, req.query.lang);
@@ -112,7 +106,19 @@ server.get('/confirm_email', function(req, res){
         res.end();
         return;
     }
-    con.query("UPDATE proposals SET registered=1 WHERE code='"+req.query.code+"';", function (err, result, fields) {
+    var data1 = {};
+    var data2 = {};
+    if(req.query.lang=='en'){
+        last_lang= "en";
+        data1 = confText.en.thanks;
+        data2 = confText.en.error;
+    } else{
+        last_lang= "ua";
+        data1 = confText.ua.thanks;
+        data2 = confText.ua.error;
+    }
+    const my_code = req.query.code
+    con.query("UPDATE proposals SET registered=1 WHERE code='{}';".format(my_code), function (err, result, fields) {
         if(err){
             res.write(pug.renderFile("pugs/error.pug",data2));
             res.end();
@@ -127,9 +133,11 @@ server.get('/proposals', function(req, res){
     var data1 = {};
     var data2 = {};
     if(req.query.lang=='en'){
+        last_lang= "en";
         data1 = confText.en.proposals;
         data2 = confText.en.error;
     } else{
+        last_lang= "ua";
         data1 = confText.ua.proposals;
         data2 = confText.ua.error;
     }
@@ -157,9 +165,11 @@ server.get('/aboutus', function(req, res){
     var data1 = {};
     var data2 = {};
     if(req.query.lang=='en'){
+        last_lang= "en";
         data1 = confText.en.aboutus;
         data2 = confText.en.form;
     } else{
+        last_lang= "ua";
         data1 = confText.ua.aboutus;
         data2 = confText.ua.form;
     }
@@ -183,8 +193,10 @@ function getHeader(lang, page) {
     }
 
     if(lang=='en'){
+        last_lang= "en";
         data['text'] = config.en;
     } else {
+        last_lang= "ua";
         data['text'] = config.ua;
     }
     return pug.renderFile("pugs/header.pug",data);
@@ -218,3 +230,10 @@ async function send(emailTo, text, name, code, lang) {
         }
     });
 }
+
+String.prototype.format = function () {
+    var i = 0, args = arguments;
+    return this.replace(/{}/g, function () {
+        return typeof args[i] != 'undefined' ? args[i++] : '';
+    });
+};

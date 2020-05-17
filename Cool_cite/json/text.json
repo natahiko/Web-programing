@@ -1,5 +1,6 @@
 {
   "ua":{
+    "lang": "ua",
     "title": "Крутий сайт",
     "homename": "Головна",
     "booksname": "Книги",
@@ -58,6 +59,7 @@
     }
   },
   "en": {
+    "lang": "en",
     "title": "Cool cite",
     "homename": "Home",
     "booksname": "Books",

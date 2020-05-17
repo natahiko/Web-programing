@@ -1,11 +1,3 @@
-anagram/.idea
-csvLab2/.idea
-csvLab2/node_modules
-Spamer/.idea
-Spamer/node_modules
-Заповнення_та_оновлення_сторінки/.idea
-Заповнення_та_оновлення_сторінки/node_modules
-Cool_cite/.idea
-Cool_cite/node_modules
-Рефакторинг/.idea
-Рефакторинг/node_modules
+*/node_modules
+*.zip
+*/.idea
