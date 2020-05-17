@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Книги</title>
+    <!--    import Smarty library which was installed by npm-->
+    <script language="javascript" src="node_modules/smarty.js/smart.min.js"></script>
+    <style>
+        .caption{
+            text-align: center;
+            color: #005f07;
+        }
+    </style>
+</head>
+<body>
+<!--use Smarty for display books-->
+<script id="allbooks" type="text/x-jsmart-tmpl">
+
+   <h1 class="caption">{$caption}</h1>
+   <br/>
+   {foreach $books as $i => $book}
+      <div>
+         {$i+1}) {$book.author} - {$book.title|upper} -
+            {if $book.year > 2010}
+               <b style="color:red">{$book.year}</b>
+            {/if}
+            {if $book.year < 2010}
+               <span style="color:red">{$book.year}</span>
+            {/if}
+      </div>
+   {foreachelse}
+      No books
+   {/foreach}
+
+    <br/>
+   <h4>Total: {$book@total}</h4>
+
+</script>
+<!--script thal will run Smarty-->
+<script type="text/javascript" src="smarty-js.js"></script>
+</body>
+</html>

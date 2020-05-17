@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="/book/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <meta name="description" content="Web site created using create-react-app"/>
+    <link rel="apple-touch-icon" href="/book/logo192.png"/>
+    <link rel="manifest" href="/book/manifest.json"/>
+    <title>React App</title>
+    <link href="/book/static/css/main.060b5e35.chunk.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../css/header.css" rel="stylesheet">
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    function changeLang() {
+        $.ajax({
+            dataType: "json",
+            url: "http://localhost:7777/content",
+            success: function (res) {
+                $("#title").text(res.title);
+                $("#homename").text(res.homename);
+                $("#booksname").text(res.booksname);
+                $("#aboutname").text(res.aboutname);
+                $("#title").attr("href", "/?lang="+res.lang);
+                $("#homename").attr("href", "/?lang="+res.lang);
+                $("#booksname").attr("href", "/book?lang="+res.lang);
+                $("#aboutname").attr("href", "/aboutus?lang="+res.lang);
+
+                $("#eremail").val(res.form.eremail);
+                $("#ername").val(res.form.ername);
+                $("#name").text(res.form.name);
+                $("#email").text(res.form.email);
+                $("#comment").text(res.form.comment);
+                $("#header").text(res.form.header);
+                $("#submit_button").attr("value",res.form.ok);
+            }
+        });
+    }
+    changeLang();
+    function changeLang2(lang) {
+        $.ajax({
+            dataType: "json",
+            url: "http://localhost:7777/setLang?lang="+lang,
+            success: function (res) {
+                changeLang();
+            }
+        });
+    }
+</script>
+<header id="header_section" class="navbar navbar-fixed-top">
+    <div class='navbar-inner' style='width: 100%; background: #07BFC7'>
+        <div class='container'>
+            <ul class='nav' style='float: right'>
+                <li style='right: 0px'><a href='/book?lang=en' onclick="changeLang2('en')">ENG</a></li>
+                <li style='float: right'><a href='/book?lang=ua' onclick="changeLang2('ua')">UKR</a></li>
+            </ul>
+            <ul class='nav'>
+                <li><a class='brand' href='/' id="title"></a></li>
+                <li><img class='logo' src='../img/logo.png'></li>
+                <li class='undefined'><a href='/' id="homename"></a></li>
+                <li class='active'><a href='/book' id="booksname"></a></li>
+                <li class='undefined'><a href='/aboutus' id="aboutname"></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<section id="request_section">
+    <h2 id="header"></h2>
+    <form class='well mybord' action='/addUser' method='GET'><label id="name"></label><input class='input-xlarge search-query'
+                                                                                       type='text' placeholder='..'
+                                                                                       id='input_surname'
+                                                                                       name='input_surname'><label id="email">
+    </label><input class='input-xlarge' type='email' placeholder='Example@email.com' id='input_email'
+                            name='input_email'><label id="comment"></label><textarea class='input-xlarge' rows='2'
+                                                                                placeholder='...'
+                                                                                name='input_comment'></textarea>
+        <button class='btn' type='submit' id='submit_button' onclick='return empty()'></button>
+        <input style='display: none' id='ername' value=''><input style='display: none' id='eremail' value=''>
+    </form>
+</section>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+<script>!function (e) {
+    function r(r) {
+        for (var n, p, a = r[0], l = r[1], f = r[2], c = 0, s = []; c < a.length; c++) p = a[c], Object.prototype.hasOwnProperty.call(o, p) && o[p] && s.push(o[p][0]), o[p] = 0;
+        for (n in l) Object.prototype.hasOwnProperty.call(l, n) && (e[n] = l[n]);
+        for (i && i(r); s.length;) s.shift()();
+        return u.push.apply(u, f || []), t()
+    }
+
+    function t() {
+        for (var e, r = 0; r < u.length; r++) {
+            for (var t = u[r], n = !0, a = 1; a < t.length; a++) {
+                var l = t[a];
+                0 !== o[l] && (n = !1)
+            }
+            n && (u.splice(r--, 1), e = p(p.s = t[0]))
+        }
+        return e
+    }
+
+    var n = {}, o = {1: 0}, u = [];
+
+    function p(r) {
+        if (n[r]) return n[r].exports;
+        var t = n[r] = {i: r, l: !1, exports: {}};
+        return e[r].call(t.exports, t, t.exports, p), t.l = !0, t.exports
+    }
+
+    p.m = e, p.c = n, p.d = function (e, r, t) {
+        p.o(e, r) || Object.defineProperty(e, r, {enumerable: !0, get: t})
+    }, p.r = function (e) {
+        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {value: "Module"}), Object.defineProperty(e, "__esModule", {value: !0})
+    }, p.t = function (e, r) {
+        if (1 & r && (e = p(e)), 8 & r) return e;
+        if (4 & r && "object" == typeof e && e && e.__esModule) return e;
+        var t = Object.create(null);
+        if (p.r(t), Object.defineProperty(t, "default", {
+            enumerable: !0,
+            value: e
+        }), 2 & r && "string" != typeof e) for (var n in e) p.d(t, n, function (r) {
+            return e[r]
+        }.bind(null, n));
+        return t
+    }, p.n = function (e) {
+        var r = e && e.__esModule ? function () {
+            return e.default
+        } : function () {
+            return e
+        };
+        return p.d(r, "a", r), r
+    }, p.o = function (e, r) {
+        return Object.prototype.hasOwnProperty.call(e, r)
+    }, p.p = "/book/";
+    var a = this["webpackJsonpmy-app"] = this["webpackJsonpmy-app"] || [], l = a.push.bind(a);
+    a.push = r, a = a.slice();
+    for (var f = 0; f < a.length; f++) r(a[f]);
+    var i = l;
+    t()
+}([])</script>
+<script src="/book/static/js/2.82ef10cf.chunk.js"></script>
+<script src="/book/static/js/main.13b71276.chunk.js"></script>
+</body>
+</html>
